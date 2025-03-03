@@ -477,6 +477,7 @@ Finally, a word about the additivity of energy. Suppose we consider two systems 
 
 
 \section{Class Notes:}
+\subsection{Introduction of Free Energy:}
 TD (Total Density) of the sample mixture = $\frac{V}{n_A + n_B}$\\
 
 Suppose there are $i$ components in the gas such that for some $m>0 $ and $m$ being an integer $i \leq m$, then we can also define the partial molar volume as $V_i$ for the $i^{th}$ component. 
@@ -588,21 +589,115 @@ which gives the important thermodynamic relation:
 where $\mu_i$ is the chemical potential of component $i$.
 
 
-1. A function is \textbf{homogeneous of degree $k$} if scaling all variables by $\lambda$ scales the function by $\lambda^k$.
-2. \textbf{First-order homogeneous functions} ($k=1$) include thermodynamic extensive properties like $V$, $U$, and $G$.
+1. A function is \textbf{homogeneous of degree $k$} if scaling all variables by $\lambda$ scales the function by $\lambda^k$.\\
+2. \textbf{First-order homogeneous functions} ($k=1$) include thermodynamic extensive properties like $V$, $U$, and $G$.\\
 3. \textbf{Euler’s theorem} states that for a homogeneous function of degree $k$:
    \begin{equation}
        \sum_{i=1}^{n} x_i \frac{\partial F}{\partial x_i} = k F
-   \end{equation}
+   \end{equation}\\
 4. Applying Euler’s theorem to Gibbs free energy yields:
    \begin{equation}
        G = \sum \mu_i n_i
    \end{equation}
-   which is fundamental in thermodynamics.
+   which is fundamental in thermodynamics.\\
 
 \end{mdframed}
 
+So, if we keep two of the parameters constant then we can have,
+\[
+F_{T,P} = \sum_i n_i \frac{\partial F}{\partial n_i}
+\]
+which is analogous to 
+\[
+\[
+G_{T,P} = \sum_i n_i \frac{\partial G}{\partial n_i} = \sum_i n_i \mu_i
+\]
+where, $\mu_i $ is the partial molar free energy.
 
+Now if $\mu_i = f(n_1, \ldots, n_m) = \left. \frac{\partial G}{\partial n_i} \right|_{T,P}$ is a $0^{th}$ order homogeneous function meaning,
+\[
+\mu_i(\lambda n_1, \lambda n_2, \ldots, \lambda n_m) = \mu_i (n_1, \ldots, n_m)
+\]
+Let's have $$a = \sum_i n_i = N$$, then we can define $\mu_i (\chi_1, \ldots, \chi_m)$ where $\chi_i$ is the mole fraction of the $i^{th}$ component.
+
+$\mu$ is NOT a linearly dependent function on the composition and scaling each component will not scale $\mu_i$ but will change the free energy.
+
+So,
+\[
+dG_{T,P} <0
+\]
+\[
+dG = -SdT +VdP + \sum_i \mu_i dn_i
+\]
+Consider, $G(T,P, n_1, \ldots, n_k)$, then 
+\[
+dG = \left .\frac{\partial G}{\partial T }\right|_{n,P} dT + \left .\frac{\partial G}{\partial P }\right|_{n,T} dP + \sum_i\left .\frac{\partial G}{\partial n_i }\right|_{T,P} dn_i 
+\]
+
+
+Finally, we have 
+\[
+\boxed{- \left .\frac{\partial G}{\partial T }\right|_{n,P} = S}
+\]
+\[
+\boxed{ \left .\frac{\partial G}{\partial P }\right|_{n,T} = V}
+\]
+
+So, at constant Temperature and Pressure we have, 
+\[
+\boxed{ \left .{\partial G}\right|_{T,P} = \sum_i \mu_i dn_i}
+\]
+ This is also known as the Gibbs Durkhem Equation.
+ Notice that $\sum n_i d\mu_i =0$, meaning change in one component gets balanced by the change in another component.
+
+
+\subsection{Sample Mixture:}
+\[
+dG = -SdT +VdP + \sum_i \mu_i dn_i
+\]
+Consider $\mu(T,P, n_1, \ldots, n_m)$, then
+\[
+d\mu_i = \left ( \frac{\partial \mu_i}{\partial T} \right)_{(P,n_i)} dT + \ldots
+\]
+\[
+= \frac{\partial}{\partial T}\left ( \frac{\partial G}{\partial n_i} \right) dT + \frac{\partial}{\partial P}\left ( \frac{\partial G}{\partial n_i} \right) dP + \sum_i \frac{\partial}{\partial n_i}\left ( \frac{\partial G}{\partial n_i} \right) dn_i
+\]
+
+\[
+= \left ( \frac{\partial (-S)}{\partial n_i} \right) + \left ( \frac{\partial (V)}{\partial n_i} \right) + \sum_i \left ( \frac{\partial (\mu_i)}{\partial n_i} \right) dn_i 
+\]
+\[
+= -S_idT + V_idP + \sum_i \left ( \frac{\partial (\mu_i)}{\partial n_i} \right) dn_i 
+\]
+
+
+\[
+\boxed{dG_{P,T}} = \sum_i \mu_i dn_i 
+\]
+The magnitude of the above expression tells the maximum non-expansion work possible and done by a system.
+
+Now we know that $G = H-TS = U+ PV -TS$, 
+\[
+dU = TdS -PdV +\sum_i\mu_i dn_i
+\]
+\[
+dU_{S,V} = \sum_i \mu_idn_i
+\]
+\[
+\boxed{\mu_i=\left ( \frac{\partial U}{\partial n_i} \right)_{S,V, n_{j\neq i}}} 
+\]
+
+\[
+\boxed{\mu_i=\left ( \frac{\partial G}{\partial n_i} \right)_{T,P, n_{j\neq i}}} 
+\]
+\[
+\boxed{\mu_i=\left ( \frac{\partial H}{\partial n_i} \right)_{S,P, n_{j\neq i}}} 
+\]
+\[
+\boxed{\mu_i=\left ( \frac{\partial F}{\partial n_i} \right)_{V,T, n_{j\neq i}}} 
+\]
+
+\subsection{Understanding Chemical Potential of Mixtures}
 \[
 V = \frac{RT}{P} \sum_i n_i 
 \]
@@ -1278,6 +1373,275 @@ The enthalpy change for a reaction can be calculated using Hess's Law:
 
 This reinforces the state function property of enthalpy, as the overall enthalpy change depends only on the initial and final states, not on the pathway.
 
+\subsection{Introduction to the Second Law}
 
+The Second Law of Thermodynamics deals with two fundamental concepts:
+\begin{itemize}
+    \item \textbf{Spontaneity}: The natural direction of processes
+    \item \textbf{Efficiency}: The limits of energy conversion
+\end{itemize}
 
+It's important to note that spontaneity does not determine the rate of a process; it only predicts whether a process can occur without external intervention.
+
+\subsection{Entropy and Spontaneity}
+
+\subsubsection{Entropy Definition}
+
+Entropy ($S$) is a state function that measures the degree of energy dispersal or disorder in a system. Mathematically, entropy change is defined as:
+
+\begin{equation}
+dS = \frac{dq_{rev}}{T}
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $dq_{rev}$ is the heat transferred reversibly
+    \item $T$ is the absolute temperature
+\end{itemize}
+
+\subsubsection{The Second Law Statement}
+
+The Second Law can be stated as:
+
+\begin{equation}
+\Delta S_{univ} = \Delta S_{sys} + \Delta S_{surr} > 0
+\end{equation}
+
+For any spontaneous process, the total entropy of the universe (system + surroundings) must increase. For a reversible process, $\Delta S_{univ} = 0$.
+
+Entropy is:
+\begin{itemize}
+    \item A state function (path-independent)
+    \item An extensive property (scales with system size)
+    \item A strictly macroscopic concept
+\end{itemize}
+
+\subsection{Examples of Entropy Calculations}
+
+\subsubsection{Example 1: Heat Transfer Between Bodies}
+
+Consider two identical metal blocks, one at 100$^\circ$C and the other at 0$^\circ$C, brought into thermal contact and isolated from surroundings.
+
+The final temperature will be 50$^\circ$C.
+
+For irreversible heat transfer, we cannot directly calculate entropy change using $dq_{irrev}/T$ because this expression is not valid for irreversible processes.
+
+Instead, we devise a reversible path:
+\begin{enumerate}
+    \item Use an infinite number of heat baths between 100$^\circ$C and 0$^\circ$C, each at infinitesimally higher temperature than the next.
+    \item Transfer heat reversibly between adjacent bodies.
+\end{enumerate}
+
+For the hot block (cooling from $T_H$ to $T_f$):
+\begin{equation}
+\Delta S_H = \int_{T_H}^{T_f} \frac{dq_{rev}}{T} = \int_{T_H}^{T_f} \frac{c \, dT}{T} = c \ln\left(\frac{T_f}{T_H}\right)
+\end{equation}
+
+For the cold block (warming from $T_C$ to $T_f$):
+\begin{equation}
+\Delta S_C = \int_{T_C}^{T_f} \frac{dq_{rev}}{T} = \int_{T_C}^{T_f} \frac{c \, dT}{T} = c \ln\left(\frac{T_f}{T_C}\right)
+\end{equation}
+
+The total entropy change:
+\begin{equation}
+\Delta S_{total} = c \ln\left(\frac{T_f}{T_H}\right) + c \ln\left(\frac{T_f}{T_C}\right)
+\end{equation}
+
+Converting to Kelvin (assuming $c$ is constant):
+\begin{equation}
+\Delta S_{total} = c \ln\left(\frac{323}{373}\right) + c \ln\left(\frac{323}{273}\right) = c \ln\left(\frac{323^2}{373 \times 273}\right)
+\end{equation}
+
+This is positive, confirming that the process is spontaneous.
+
+\subsubsection{Example 2: Free Adiabatic Expansion of an Ideal Gas}
+
+Consider an ideal gas expanding adiabatically from volume $V_i$ to $2V_i$ into a vacuum.
+
+\begin{equation}
+\Delta S = \int_{V_i}^{2V_i} \frac{dq_{rev}}{T} = \int_{V_i}^{2V_i} \frac{nRT}{T} \frac{dV}{V} = nR \ln\left(\frac{2V_i}{V_i}\right) = nR \ln 2
+\end{equation}
+
+This is positive, confirming the spontaneity of the process.
+
+\subsection{Heat Engines and the Carnot Cycle}
+
+\subsubsection{Heat Engine Principles}
+
+A heat engine converts thermal energy into mechanical work by:
+\begin{enumerate}
+    \item Drawing heat $q_H$ from a hot reservoir (temperature $T_H$)
+    \item Converting some of this heat to work $W$
+    \item Rejecting the remaining heat $q_C$ to a cold reservoir (temperature $T_C$)
+\end{enumerate}
+
+The efficiency of a heat engine is defined as:
+\begin{equation}
+e = \frac{W}{q_H} = \frac{q_H - q_C}{q_H} = 1 - \frac{q_C}{q_H}
+\end{equation}
+
+\subsubsection{Carnot Cycle}
+
+The efficiency of a Carnot engine is:
+\begin{equation}
+e_{Carnot} = 1 - \frac{T_C}{T_H}
+\end{equation}
+
+This represents the maximum possible efficiency for any heat engine operating between temperatures $T_H$ and $T_C$.
+
+\subsection{Clausius Inequality}
+
+For any process:
+\begin{equation}
+dq_{rev} \geq dq_{irr}
+\end{equation}
+
+Since $dS = \frac{dq_{rev}}{T}$, we can write:
+\begin{equation}
+dS \geq \frac{dq_{irr}}{T}
+\end{equation}
+
+This is known as the Clausius inequality.
+
+\subsection{Thermodynamic Potentials}
+
+\subsubsection{Gibbs Free Energy}
+
+The Gibbs free energy $G$ is defined as:
+\begin{equation}
+G = H - TS = U + pV - TS
+\end{equation}
+
+For a spontaneous process at constant temperature and pressure:
+\begin{equation}
+dG \leq 0
+\end{equation}
+
+At equilibrium: $dG = 0$.
+
+\section{Phase Transitions}
+
+The Clausius-Clapeyron equation relates pressure and temperature at phase equilibrium:
+\begin{equation}
+\frac{dp}{dT} = \frac{\Delta S}{\Delta V} = \frac{\Delta H}{T \Delta V}
+\end{equation}
+
+\section{Miscellaneous:}
+
+\subsection{Free Energy and Its Composition Derivatives}
+At constant temperature (\(T\)) and pressure (\(P\)), the free energy (Helmholtz \(F\) or Gibbs \(G\)) is a homogeneous function of degree one in the number of moles. For example, for the Helmholtz free energy:
+\begin{equation}
+F_{T,V} = \sum_i n_i \left(\frac{\partial F}{\partial n_i}\right)_{T,V,n_{j\neq i}}
+\end{equation}
+Similarly, for the Gibbs free energy:
+\begin{equation}
+G_{T,P} = \sum_i n_i \left(\frac{\partial G}{\partial n_i}\right)_{T,P,n_{j\neq i}} = \sum_i n_i\,\mu_i
+\end{equation}
+where the chemical potential is defined as
+\begin{equation}
+\mu_i \equiv \left(\frac{\partial G}{\partial n_i}\right)_{T,P,n_{j\neq i}}.
+\end{equation}
+
+\subsubsection{Dependence on Pressure and Composition}
+For small pressure changes at constant temperature:
+\begin{equation}
+d\mu_i = V_i\, dP,
+\end{equation}
+where \(V_i\) is the partial molar volume. Integrating, we obtain:
+\begin{equation}
+\mu_i(T,P_i) = \mu_i(T,P) + RT \ln\frac{P_i}{P}.
+\end{equation}
+For an ideal mixture, this gives:
+\begin{equation}
+\mu_i = \mu_i^* + RT\ln{\chi_i},
+\end{equation}
+where \(\mu_i^*\) is the chemical potential in the reference state.
+
+\subsection{Free Energy of Mixing}
+
+\subsubsection{Gibbs Free Energy of Mixing (\(\Delta_{mix}G\))}
+For an ideal mixture, the Gibbs free energy of mixing is:
+\begin{equation}
+\Delta_{mix} G = \sum_i n_i \left(\mu_i^* + RT\ln{\chi_i}\right) - \sum_i n_i\mu_i^* = nRT \sum_i \chi_i\ln{\chi_i}.
+\end{equation}
+Since \(\ln \chi_i\) is negative for \(\chi_i < 1\), the free energy of mixing is negative, indicating spontaneity.
+
+\subsubsection{Entropy and Enthalpy Changes}
+The entropy change for ideal mixing is:
+\begin{equation}
+\Delta_{mix} S = -nR\sum_i \chi_i\ln{\chi_i}.
+\end{equation}
+The enthalpy change is:
+\begin{equation}
+\Delta_{mix} H = 0.
+\end{equation}
+
+\subsection{Mixing Under Ideal Conditions}
+
+\subsubsection{Volume Change on Mixing (\(\Delta_{mix}V\))}
+For an ideal mixture, the volumes are additive:
+\begin{equation}
+\Delta_{mix} V = V_{\text{mixture}} - \sum_i V_i = 0.
+\end{equation}
+
+\subsubsection{Helmholtz Free Energy of Mixing (\(\Delta_{mix}A\))}
+Since \(\Delta_{mix} U = 0\), the Helmholtz free energy change is:
+\begin{equation}
+\Delta_{mix} A = -T\Delta_{mix} S = nRT\sum_i \chi_i\ln{\chi_i}.
+\end{equation}
+
+\subsection{Additional Thermodynamic Identities}
+
+\subsubsection{Gibbs-Duhem Relation}
+The Gibbs free energy satisfies:
+\begin{equation}
+dG = -S\,dT + V\,dP + \sum_i \mu_i\,dn_i.
+\end{equation}
+At constant \(T\) and \(P\):
+\begin{equation}
+dG_{T,P} = \sum_i \mu_i\,dn_i.
+\end{equation}
+The Gibbs-Duhem relation follows:
+\begin{equation}
+\sum_i n_i\,d\mu_i = 0.
+\end{equation}
+
+\subsubsection{Ideal Gas Mixtures and Partial Pressures}
+For an ideal gas mixture:
+\begin{equation}
+P = \frac{RT}{V}\sum_i n_i,
+\end{equation}
+and the partial pressure of component \(i\) is:
+\begin{equation}
+P_i = \chi_i P.
+\end{equation}
+
+\subsection{Summary of Key Results}
+\begin{itemize}
+    \item Chemical Potential in a Mixture:
+    \begin{equation}
+    \mu_i = \mu_i^* + RT\ln{\chi_i}.
+    \end{equation}
+    \item Gibbs Free Energy of Mixing:
+    \begin{equation}
+    \Delta_{mix} G = nRT\sum_i \chi_i\ln{\chi_i}.
+    \end{equation}
+    \item Entropy of Mixing:
+    \begin{equation}
+    \Delta_{mix} S = -nR\sum_i \chi_i\ln{\chi_i}.
+    \end{equation}
+    \item Enthalpy of Mixing (Ideal Mixture):
+    \begin{equation}
+    \Delta_{mix} H = 0.
+    \end{equation}
+    \item Volume Change on Mixing:
+    \begin{equation}
+    \Delta_{mix} V = 0.
+    \end{equation}
+    \item Helmholtz Free Energy of Mixing:
+    \begin{equation}
+    \Delta_{mix} A = nRT\sum_i \chi_i\ln{\chi_i}.
+    \end{equation}
+    \item Surroundings’ Entropy Change: Zero in an ideal isothermal, isobaric process.
+\end{itemize}
 \end{document}
