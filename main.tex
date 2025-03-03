@@ -2,6 +2,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{graphicx} % Required for inserting images
 \usepackage[margin=1in]{geometry} % Adjusted margins for better readability
 \usepackage{mathrsfs}
@@ -24,6 +26,7 @@
 \renewcommand{\cftsubsecafterpnum}{\hypersetup{linkcolor=blue}}
 \newtheorem{definition}{Definition}
 \newtheorem{note}{Note}
+
 % Define a color for the box
 \definecolor{lightblue}{RGB}{173, 216, 230}
 
@@ -182,10 +185,10 @@ What are we to understand here by a "thermodynamic system"? To answer this quest
 By way of contrast, we go on to consider a very simple example of a (phenomenological) system—let us always refer to it as our \textit{sample system}—which will turn out to be non-mechanical. It consists merely of a gas. Of course this has to be enclosed by a container; and since we want the volume of this to be variable we may simply take it to a cylinder permanently closed at one end and by a movable piston at the other. Further, there shall be some kind of stirrer inside the cylinder by means of which the gas can be agitated from without. Nevertheless, the gas alone constitutes the system; that is to say, neither the enclosure nor the stirrer are to be regarded as part of it.
 
 \subsection{D-Coordinates and H-Coordinates}
-Now, this system too can be "deformed", namely by moving the piston.
-
-\note{Superficially this deformation seems to be different from the kind of deformation encountered earlier, since we might argue that we are deforming the container, and that it is not part of the system. We can save the situation by noting that at the same time different parts of the gas are displaced relatively to each other.
-}\\
+Now, this system too can be \enquote{deformed}, namely by moving the piston.
+\note{Superficially this deformation seems to be different from the kind of deformation encountered earlier, since we might argue that we are deforming the container, and that it is not part of the system. We can save the situation by noting that at the same time different parts of the gas are displaced relatively to each other.}
+\\
+\normalfont
 
 A d-coordinate is therefore naturally associated with it, the value of which specifies the position of the piston. We denote it indiscriminately by \(x_i\) in particular it might, of course, be chosen to be the volume \(V\) occupied by the gas. No other non-redundant d-coordinate can be defined. Nevertheless even the most elementary observation shows that the equilibria of this system are not adequately described by the values of \(x_i\) alone. Indeed, we soon find that upon touching the system we may burn our fingers on one occasion and not do so on another. Clearly at least one other variable which is not a d-coordinate must be introduced. I shall call any such variable an \textbf{\textit{h-coordinate}}. In the case of our sample system only one of them is required, and it might, for instance, be taken to be the pressure \(P\) of the gas, but this choice is not mandatory.
 
@@ -319,6 +322,7 @@ Systems failing the standard criteria include:
 We are already familiar with the meaning of the two kinds of coordinates of a thermodynamic system \( K \). In future we shall call any particular set of values of these a state \(\mathcal{G}\) of \( K \); for which reason the coordinates themselves are often also called ‘variables of state’. Of course, unless equilibrium obtains, h-coordinates are not defined, in the sense that experiment does not yield unique values which might be assigned to them. (For example, there is no single well-defined pressure which might be assigned to a gas in turbulent motion.) Accordingly it is meaningless to speak of a ‘non-equilibrium state’: a system not in equilibrium is simply in no state at all.
 
 \note{Such a statement may look rather bewildering at first sight, considering that elsewhere one does apparently non-negligibly discuss ‘non-equilibrium states’. There is no contradiction. In one case we are operating strictly within the framework of the definitions of one theory; in the other, one is concerned with the definitions of another theory, e.g., fluid dynamics, and then what is meant by a ‘state’ is something altogether different.}\\
+\normalfont
 
 Concomitantly, since all quantitative statements of classical thermodynamics are about states, any predictions about the outcome of experiments involving non-equilibrium processes can be at best qualitative.
 
@@ -326,7 +330,7 @@ Concomitantly, since all quantitative statements of classical thermodynamics are
 A change of any system \( K \) from one state to another will be called a transition of \( K \). In the course of a transition \( K \) may or may not be in equilibrium. When it is, i.e., when \( K \) goes through a continuous sequence of states, the transition is called pseudo-static; a terminology which reflects the fact that it must proceed ‘at an infinitesimal rate’,
 
 \note{The phrase ‘at an infinitesimal rate’ of course cannot be taken literally, since otherwise we would be confronted with the unsavoury conclusion that a quasi-static transition occupies an infinite time interval. As in Note 1, we face the need to adopt a sensible interpretation. Here a transition proceeds ‘at an infinitesimal rate’ if it proceeds so slowly that the deviations from equilibrium are such that the system nevertheless behaves as if it were in equilibrium, i.e., to within experimental error the disequilibrium has no observable consequences.}\\
-
+\normalfont
 since otherwise the appearance of elastic waves, turbulence, and the like would not counter to the equilibrium which is supposed to obtain. If, further, in the course of a pseudo-static transition work is done by the forces \( P_k \) alone it is called quasi-static. (For example, transitions of a sample system brought about solely by turning the stirrer or alternatively solely by moving the piston, either process occurring at an infinitesimal rate, or as pseudo-static and quasi-static, respectively.) Finally, a transition such that \( K \) is not in equilibrium in the course of at least a part of it is called non-static.
 
 Special conditions are frequently imposed upon transitions which restrict their generality. For example, when all d-coordinates of \( A \) are kept fixed by prescription the transition is isometric; if we merely require their final values to be the same as their initial values we call it weakly isometric. Further, a transition is infinitesimal if the final state, and in the case of a quasi-static transition every intermediate state, is sufficiently close to, i.e., lies in the neighbourhood of the initial state.
@@ -334,14 +338,14 @@ Special conditions are frequently imposed upon transitions which restrict their 
 \note{Physicists often rely on intuition for an understanding of this definition. That is, indeed, often quite good enough. What is in fact usually meant when speaking of the neighbourhood? An \(\epsilon\)-neighbourhood of \(\Theta\), with \(\epsilon\) being some preassigned positive number. Having chosen a set of coordinates of \( K \) and the units in which these are to be measured, it will suffice to take an \(\epsilon\)-neighbourhood of \(\Theta[x_1, \ldots, x_n]\) to consist of all states \(\Theta[x_1', \ldots, x_n']\) such that \(|x_1' - x_1| + |x_2' - x_2| + \cdots + |x_n' - x_n| < \epsilon\). In the context of infinitesimal transitions, by "transitions between neighbouring states", \(\epsilon\) must be taken to be sufficiently small. Thus, if something is said to be true in every neighbourhood of \(\Theta\), it means that it is true no matter how one chooses \(\epsilon\); in particular, that it will be true for arbitrarily small values of \(\epsilon\).
 }\\
 
-
+\normalfont
 Again, a most prominent position is occupied in the theory of the class of so-called adiabatic transitions. To define these we must first clearly understand what is meant by adiabatic isolation.
 
 \subsection{Adiabatic Isolation}
 To this end, let us first think about the homely example of an aluminium container filled with water and ice cubes. Upon placing it in a refrigerator we may find that after some time the water has also turned into ice. On the other hand, they've placed the container over the flame of a gas burner the ice cubes would have melted, the evaporation of some or all of the water quite apart. Now contrast this behaviour with what we observe when the aluminium container is replaced by a high-quality thermos flask. True, the ultimate behaviour of the water ice mixture is the same, yet an altogether different time scale is involved. For instance, upon placing the flask in the refrigerator we may have to wait for days for the water to freeze. It is therefore not unreasonable to suppose that better and better ‘thermos flasks’ could be constructed until we end up with one which is such that it is to all intents and purposes altogether impossible to melt the ice or freeze the water contained within it merely by placing it into appropriate surroundings.
 \note{We are again confronted with an idealization, and we cannot be sure that it is warranted. After all, it is certainly true that in practice we cannot construct an ‘ideal’ thermo flask. We may still think it ‘reasonable’ to allow its introduction into the theory, especially as only a question of time scale appears to be involved—and we already encountered difficulties surrounding this several times before. Still, one has to be careful: what is ‘reasonable’ today may not be ‘reasonable’ tomorrow. Sudden changes in attitude have occurred in the history of physics, for example following upon the introduction of the Heisenberg Uncertainty Principle, the Restricted Relativity Principle, and the like.}\\
 The only way to melt the ice is to some mechanical process, not by shaking or stirring.
-
+\normalfont
 The particular example just discussed leads us to the following general definition: an enclosure is called adiabatic (a) the equilibrium of a system contained within it can only be disturbed or mechanical means. An enclosure which is not adiabatic is called diathermic. Any doubt as to what constitutes ‘mechanical means’ is removed by prescription; examples are shaking, stirring, the movement of a piston (or more generally any deformation of the system), and the passage of an electric current.
 
 \subsection{Adiabatic Transitions and Work}
@@ -375,7 +379,7 @@ We can shift the emphasis a little by rephrasing this conclusion as follows. Giv
 
 \note{The first of them is usually known as the Principle of Carathéodory. It is largely equivalent to the traditional statements of the Second Law of Thermodynamics. Its experimental confirmation is mostly indirect: no-one in his senses would suppose that, as a practical proposition, its validity could be tested directly. In any event, such a remark might be made about many laws of physics.
 }\\
-
+\normalfont
 Moreover, it is obvious in the case of the sample system under discussion that if the state \(\mathcal{G}'\) is adiabatically inaccessible from \(\mathcal{G}\), then \(\mathcal{G}\) is (adiabatically) accessible from \(\mathcal{G}'\). Setting our special system aside now, the results of innumerable experiments confirm that the two main conclusions just stated hold quite generally for (standard) systems of arbitrary complexity [Note 8].
 
 \subsection{Empirical Entropy Function}
@@ -385,6 +389,7 @@ Each state is a set of values of the coordinates \(x_1,\ldots,x_n\) of the syste
 
 \note{Even now it should be emphasized that the function \( s \) is so far defined only on the discrete set of states \(\Theta\), \(\Theta_x, \ldots\). Questions of its continuity or differentiability are therefore as yet beside the point. The construction we have carried out could of course be undertaken also in the context of other systems for which ‘states’ have been defined, as, for example, in the case of a dynamical particle system, the state being taken as a set of values of position coordinates and of the corresponding velocities. However, the construction is then empty in the sense that all representative points will coincide, i.e., \( s \) is a fixed constant. To a large extent, the essential content of the Second Law (to be stated shortly) is that for thermodynamic states the construction is, in fact, not empty.
 }\\
+\normalfont
 Any particular \(\mathcal{G}_j\) is labelled by a number \(s_j=s(\mathcal{G}_j)\), this labeling having the fundamental property that a transition from a state \(\mathcal{G}_j\) to a state \(\mathcal{G}_k\) is possible if and only if \(s_j\leq s_{k}\) (equally implying reversibility). We call \(s_j\) the \textit{empirical entropy} of \(\mathcal{G}_j\) (or of \(K\) in the state \(s(\mathcal{G}_j)\) and $s(\mathcal{G}_j)$ the \textit{empirical entropy function} of \(K\). Evidently if \(K_0\) undergoes a transition from \(\mathcal{G}_j\) to \(\mathcal{G}_k\), the empirical entropy of the final state can never be less than that of the initial state.
 
 \subsection{Continuum of States and the Second Law}
@@ -392,11 +397,11 @@ Now, however large the set of states \(\mathcal{G}_1\), \(\mathcal{G}_2\), \ldot
 
 \note{That the set of possible states of \( K_s \) is continuous whereas the set of quantum mechanical states of a bound system is discrete must on no account be thought to involve a contradiction: quantum states are not the states we are talking about, and a given ‘quantum state’ indeed depends continuously on the value of the \( d \)-coordinates which go to make up a thermodynamic state when they vary at an infinitesimal rate.
 }\\
-
+\normalfont
 It is therefore impossible to construct a labeling of the states of \(K_0\) by the simple method adopted.
 
 \note{Since the passage of an electric current through \( K \) was taken to constitute mechanical interactions, this statement would appear to be true when the source of the current is an electric generator but false when it is a battery. To be on the safe side, we should supplement ‘motions’ with the words ‘or chemical reactions’.}\\
-
+\normalfont
 For the distinction between the continuum of states and a sufficiently large set \(\mathcal{G}_1\), \(\mathcal{G}_2\), \ldots selected from another then, however important mathematically, is physically vacuous. Being loath to abandon the particular conceptual approach which led to easily to an understanding of the idea of entropy we cut the Gordans knot by simply declaring that such a good function \(s(x_1,\ldots,x_n)\) [Note 11] with the required properties always exists. In short, we lay down the following law, intended to be a formulation of the \textit{Second Law of Thermodynamics} (so called for historical reasons):
 
 \begin{quote}
@@ -421,11 +426,11 @@ We return briefly to mechanical systems. Given any configuration, we know all ab
 
 \note{This statement is in practice not rigorously true. It represents an idealization in which at least the assumption that all elastic substances in the system are ‘perfectly elastic’ is satisfied. As remarked earlier, for instance in \textit{Note 6}, one always has to be careful with idealizations; in the present context not least because one runs the risk of a circular argument which in the end says no more than that a certain statement is true when it is true. What it all amounts to here is this: in a strictly mechanical system, all elastic substances must be perfectly elastic, and a perfectly elastic substance is such that the amount of work done on it depends solely upon the deformation it has undergone. This therefore is a definition, and we can then determine by experiment whether a given substance is perfectly elastic or not. In practice, it must of course suffice that it should, under appropriate circumstances, have the property only within experimental error. Incidentally, the system must be both initially and finally at rest. Evidently, any change in configuration must occur ‘sufficiently slowly’ or else vibrations will be set up, and the only way to stop these is by means of frictional forces. Then the statement under discussion would again be false.
 }\\
-
+\normalfont
 We can put this in another way: for any mechanical system there exists a function \(E\) of its coordinates such that the work done on the system in any change of configuration is equal to the increase in the value of \(E\). This function, called the energy of the system, is defined only to within an arbitrary additive constant. Evidently if a particular change of configuration is such that the work done happens to be zero, then the initial and final values of \(E\) are equal; this is what is meant here by the conservation of energy. In short, the energy of every mechanical system is conserved; but in saying this we must bear in mind that \(E\) is solely a function of \(\infty\) coordinates.
 
 \note{A conservation law governing some physical quantity \( q \) declares that as the system with which it is associated pursues its history, the value of \( q \) remains constant; or sometimes, more weakly, that the value of \( q \) in the remote future will be equal to its value in the remote past. Thus, given the initial value of \( q \), one knows its value at all times (or at least in the remote future) without necessarily having to know anything about the details of the evolution of the system—details which may be unavailable in practice or sometimes even in principle.}\\
-
+\normalfont
 \subsection{Thermodynamic Systems and Work}
 We now go over to thermodynamic systems. Work is done here, too, when the \(\infty\) coordinates vary. It is, however, not true that the amount of work in a transition depends solely on the deformation it has undergone, i.e. on the extent to which the \(\infty\) coordinates have varied. That this is so becomes obvious on reflecting that work can be done on the system simply by stirring it, and in that process the values of the \(\infty\) coordinates do not change at all. Furthermore there is reason why, in general, the final values of the \(\infty\) coordinates should differ from their initial values. As far as the system is concerned, the work done on it has apparently simply ‘disappeared’. At first sight it therefore looks as if no energy function could usefully be ascribed to a thermodynamic system. How is this unhappy situation to be rescued?
 
@@ -451,7 +456,7 @@ and for historical reasons one rather qualifies calls \(Q\) the 'heat absorbed b
 We have already supposed that \(U\) is a good function.
 
 \note{By a ‘good’ function I mean a function which is single-valued, continuous, and sufficiently often differentiable, at least within some finite neighbourhood of a given state of interest. Here again it is best to postulate that \( s \) is a good function. Given only the existence of states inaccessible from a given state and the non-existence of pairs of mutually inaccessible states, together with assumptions about neighbourhoods of states, one can, by sophisticated arguments, prove the existence of a continuous function \( s \). However, one still cannot prove its differentiability, so that the whole endeavour is in the end just a wasteful exercise. In any event, functions which turn up in physics are often simply assumed to be good: whether they really are or not can obviously not be tested by direct experiment. Where discontinuities appear to occur, one simply has to analyse them by special arguments.}
-
+\normalfont
 
 Apart from this, experiment shows that the energy of any given system has a least value, i.e. it has a lower bound. On the other hand the energy of the vast majority of systems has no upper bound. Unless the contrary is stated explicitly, I shall therefore suppose throughout that the energy of any system can be increased indefinitely, and that this can indeed be done even by means of isometric processes alone.
 
@@ -466,4 +471,314 @@ Finally, a word about the additivity of energy. Suppose we consider two systems 
 \item 5.2 A rigid adiabatic enclosure is divided into two parts by means of an internal partition. Initially the first compartment contains a gas whilst the second is evacuated. The partition is subsequently removed so that the gas will fill the whole enclosure. What can you say about the value of \(\Delta U\)?
 \item 5.3 For the sake of argument, suppose that a system consists of a fluid contained in a rigid adiabatic enclosure. (The system is artificial in that there are no deformation coordinates. On the other hand, the usual stirrer is to be present.) Determine an empirical entropy function.
 \end{itemize}
+
+
+\section{Class Notes:}
+\[
+V = \frac{RT}{P} \sum_i n_i 
+\]
+\[
+\frac{\partial V}{\partial n_i } = \frac{RT}{p}= V_m = \frac{V}{\sum n_i}
+
+\]
+\[
+\frac{\partial n_{j \neq i}}{n_i}= 1
+\]
+In the ideal gas situation each component finds the whole container available for it. It doesn't feel that someone else is there. 
+
+\[
+P_i = \frac{n_i RT}{V}
+\]
+\[
+P = \frac{\sum_i n_i RT}{V}
+\]
+\[
+P_i = \chi_i P
+\]
+Define a close system such that change in the number of moles of any component is 0. $dn_i = 0 \forall i$ at const. T
+
+Do remember that, 
+\[
+dG = Vdp -Sdt + \sum_i \mu_idn_i
+\]
+\[
+d\mu_i = V_idp -S_idt + \sum_i \frac{d\mu_i}{dn_i}dn_i
+\]
+\begin{center}
+    
+
+\begin{tikzpicture}[
+    chamber/.style={rectangle, draw=black, thick, minimum width=4cm, minimum height=3cm},
+    divider/.style={thick},
+    label/.style={font=\large},
+    pressure/.style={font=\small}
+]
+
+% Draw the main chamber
+\node[chamber] (chamber) {};
+
+% Draw the vertical divider
+\draw[divider] (chamber.center) -- ++(0,1.5cm);
+\draw[divider] (chamber.center) -- ++(0,-1.5cm);
+
+% Label chamber sections
+\node[label] at ([xshift=-1.2cm] chamber.center) {A};
+\node[label] at ([xshift=1.2cm] chamber.center) {B};
+
+% Add partial pressure labels
+\node[pressure] at ([xshift=-1.2cm, yshift=-0.5cm] chamber.center) {$P_A$};
+\node[pressure] at ([xshift=1.2cm, yshift=-0.5cm] chamber.center) {$P_B$};
+
+\end{tikzpicture}
+\end{center}
+So, at cont T and const. composition,
+\[
+d\mu_i = V_i dp
+\]
+\[
+\Delta \mu_i = \mu_i (T, P_i) - \mu_i(T,P) = \int_P^{P_i} V_idp = \int_P^{P_i} \frac{RT}{P} dp = RT \ln{\chi_i}
+\]
+Basically, any change in the chemical potential means that the only change will occur in the mole fraction and vice-versa.
+\[
+\mu_i (T,P, \chi_i) = \mu_i(T,P) + RT\ln{\chi_i}
+\]
+\[
+\mu_i = \mu_i^* + RT\ln{\chi_i}
+\]
+where, $\mu_i^*$ is the reference state, maybe the ideal gas situation. 
+
+\\
+This means that suppose we have $P_{i_1} \rightarrow P_{i_2}$, then we have the different refernce state,
+\[
+\mu_{i_1}  = \mu_{i_2} + RT\ln{\frac{c_{i_2}}{c_{i_1}}}
+\]
+This is an alternate reference state.
+\[
+P_i = \frac{n_iRT}{V} = c_iRT
+\]
+\[
+\frac{a_{i_2}}{a_{i_1}} = \frac{\chi_{i_2}}{\chi_{i_1}}
+\]
+Change in the mixture and not the $G_{mix}$, remember the later is a wrong notation.
+So we have ,
+\[
+\Delta_{mix} G = G_{T,P} +  G_{T,P}^*
+
+\]
+\[
+= \sum_i n_i\mu_i - \sum_in_i\mu_i^*
+\]
+\[
+= \sum_i n_i(\mu_i^* + RT\ln{\chi_i} - \sum_in_i\mu_i^*
+\]
+\[
+ \Delta_{mix} G = nRT\sum_i \chi_i\ln{\chi_i}
+\]
+Consider a free adiabetic expansion of ideal gas,,
+From $P,V,T \rightarrow P=0, 2V$ this expansion is carried out at const temperature, $dq_{rev} = dw_{rev}$, so we get the entropy change as $nR\ln{2}$
+
+Remember,
+\[
+\frac{\partial G}{\partial T}|_{P,n} = \Delta_{mix} S
+\]
+\[
+\Delta_{mix} H = \Delta G + T\Delta S = 0
+\]
+This is an ideal mixture, so there is no enthalpy change in the in the mixing.\\
+Find the followings:
+
+\[
+\Delta V_{mix} = ?
+\]
+
+\[
+\Delta A_{mix } = ?
+\]
+Should there be any change in the entropy of the surrounding? 
+\[
+\Delta_{mix} S = -nR\sum_i \chi_i\ln{\chi_i}
+\]
+Since this is a const pressure process, then heat change is the enthalpy change and since enthalpy change is 0, so the process is adiabetic.
+
+Can we look at just the state variables of the process and just conclude if the process be spontaneous?
+We just did that!!!\\
+\textbf{
+Any system that is capable of doing work at const temp and pressure then the spontanaity is for only the non-expansion work.
+}\\
+\textbf{Question:}
+\\
+Pure liquid A with vapour pressure $P_A$, assume the vapour to be ideal gas, the $\mu_A = \mu_0 + RT\ln{P_A^*}$, $P_A^*$ is the vapour pressure relative the reference state $P_A^* = \frac{P_A}{P_0}$ , $\mu_A$ chemical potential of the vapour phase. Since the chemical eq. guarantees that the $\mu_A = \mu_{liquid}$ meaning we can use the same ideal gas law can be applied to the liquid, as long as it's in chem eq and the vapour behaves ideally.
+\\
+Now, if I go from the pure liquid to a mixture of liquid, that might not be solid. I am mixing 2 liquids. I am moving away from the pure state, the eq may not be valid now. 
+\[
+\mu_{A_{mix}} = \mu_0  + RT\ln{P_{A_{mix}}'}
+\]
+\[
+\mu_{A_{liq}} = \mu_0  + RT\ln{P_{A_{liq}}^*}
+\]
+mix is the mixture of A and B. 
+
+If we see the change in the chem potential,
+\[
+\mu_{A_{mix}} - \mu_{A_{pure}} = RT\ln{\frac{P_{A, mix}}{P_{A,pure}}}
+\]
+\[
+P_A' = \frac{P_{A,m}}{P_0}
+\]
+
+\[
+\frac{P_A'}{P_A^*} = \frac{P_{A,mix}}{P_{A, pure}}
+\]
+
+\subsection{Rault's Law}
+
+\begin{center}
+    
+
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={Mole fraction of A, $X_A$},
+    ylabel={Partial Pressure (kPa)},
+    xmin=0, xmax=1,
+    ymin=0, ymax=90,
+    xtick={0,0.5,1},
+    ytick={0,30,80},
+    grid=both,
+    axis lines=left,
+    smooth]
+
+% Partial pressure curves
+\addplot[blue, thick] {80*x}; % P_A = X_A * P_A^0 (P_A^0 = 80 kPa)
+\addplot[black, thick] {80};
+\addplot[red, thick] {30*(1 - x)}; % P_B = X_B * P_B^0 (P_B^0 = 30 kPa)
+
+% Dashed lines for pure component vapor pressures
+\draw[dashed, gray] (axis cs:1,0) -- (axis cs:1,80); % P_A^0
+\draw[dashed, gray] (axis cs:0,0) -- (axis cs:0,30); % P_B^0
+
+% Labels for pure component pressures
+\node at (axis cs:1,40) {$P_A^0$};
+\node at (axis cs:0,15) {$P_B^0$};
+
+% Curve labels
+\node[blue, right] at (axis cs:0.7,56) {$P_A = X_A P_A^0$};
+\node[red, left] at (axis cs:0.3,21) {$P_B = X_B P_B^0$};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\[
+P_{A, mix} = P_{A, pure}\chi_A
+\]
+\[
+\frac{P_A}{P_{A, pure}} = \chi_A
+\]
+
+
+Definition of an Ideal Solution: Such that the chem potential of A summed to the $RT\ln{\chi_A}$
+
+\subsection{Henry's Law}
+As $\chi_B \rightarrow0$,
+
+\[
+P_B \propto \chi_B
+\]
+
+Think of a solution in a closed vessel with components A and B, a monogeneous mix, the rate of evaporation of A will be related to the number of molecules of A or the mole fraction of A  ie. $\chi_A$
+\[
+\text{Rate of Evaporation} = k\chi_A
+\]
+\[
+\text{Rate of Condensation} = k'P_A
+\]
+\[
+P_A = \frac{k}{k'}\chi_A
+\]
+Interactions deviate from the ideality, the molecules on the surface are drastically different from the bulk molecules.
+
+So, this law also makes you think about the ideality of the solution.
+
+\begin{enumerate}
+    \item The solute is not volatile, meaning you will only see the solvent.
+    \item The dissolved solute will not be a part of the solid solvent.
+\end{enumerate}
+
+
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel={$T$ (Temperature)},
+        ylabel={$\mu$ (Chemical Potential)},
+        grid=major,
+        thick,
+        domain=0:200,
+        samples=100,
+        ymin=-5, ymax=5,
+        xmin=0, xmax=200,
+        xtick={0,50,100,150,200},
+        ytick={-5,-2,0,2,5},
+    ]
+    
+    % Chemical potential decreasing with steps at phase transitions
+    \addplot[
+        blue, thick, mark=*, mark options={scale=1.2, fill=white}
+    ] coordinates {
+        (0,4) (50,3) (50,2) (100,1) (100,-1) (150,-3) (200,-4)
+    };
+    
+    % Labels for melting and boiling points
+    \node at (axis cs:50,2.5) [anchor=east] {Melting};
+    \node at (axis cs:100,-0.5) [anchor=east] {Boiling};
+    
+    \end{axis}
+\end{tikzpicture}
+
+\textbf{Nature of the graph:} $RT\ln{\chi_A}$ here $\chi_A \leq 1$ meaning the chemical potential of the solvent of the mixture will always be less than the pure solvent.
+
+\[
+\text{Change in the Temp for freezing and boiling } \propto \chi
+\]
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/chem_pot_collegative.png}
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+\[
+\mu_{A,gas} = \mu_{A, liquid}
+\]
+\[
+\mu_{A,gas}^* = \mu_{A,liquid}^* + RT\ln{\chi_A}
+\]
+
+\[
+\ln{\chi_A} = \frac{\mu_{A,gas}^* - \mu_{A,liquid}^*}{RT} = \frac{\Delta G_{vap}}{RT}
+\]
+
+\[
+\frac{d}{dt}(\ln{\chi_A}) = \frac{1}{R} \frac{d}{dt} \frac{\Delta G_{vap}}{T} = - \frac{\Delta H_{vap}}{RT^2}
+\]
+\[
+\int_0^{\ln{\chi_A}} d(\ln{\chi_A}) = - \int_{T^*}^{T} \frac{\Delta H_{vap}}{RT^2} dT
+\]
+\[
+\implies \ln{1-\chi_B} =  -\frac{\Delta H_{vap}}{R}\{\frac{1}{T^*}- \frac{1}{T}\}
+\]
+\[
+\frac{\partial }{\partial T}(\frac{\Delta G}{T})_P = - \frac{\Delta H}{T^2}
+\]
+\[
+\frac{\partial G}{\partial T}_P = \frac{G-H}{T}
+\]
+
+\[
+\frac{\partial}{\partial T} \frac{\Delta G}{T} = -\frac{G}{T^2} + \frac{G-H}{T^2} = -\frac{\Delta H}{T^2}
+\]
+
+\section{AI Trying to Summerize the Notes:}
+
+
+
 \end{document}
