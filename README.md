@@ -1,5 +1,3 @@
-# Thermodynamics-Open-Source
-
 ---
 author:
 - Shuvam Banerji Seal
@@ -62,9 +60,8 @@ enclosure nor the stirrer are to be regarded as part of it.
 
 ## D-Coordinates and H-Coordinates
 
-Now, this system too can be \"deformed\", namely by moving the piston.
+Now, this system too can be "deformed", namely by moving the piston.\
 
-\
 A d-coordinate is therefore naturally associated with it, the value of
 which specifies the position of the piston. We denote it
 indiscriminately by $x_i$ in particular it might, of course, be chosen
@@ -309,6 +306,7 @@ meaningless to speak of a 'non-equilibrium state': a system not in
 equilibrium is simply in no state at all.
 
 \
+
 Concomitantly, since all quantitative statements of classical
 thermodynamics are about states, any predictions about the outcome of
 experiments involving non-equilibrium processes can be at best
@@ -367,15 +365,14 @@ until we end up with one which is such that it is to all intents and
 purposes altogether impossible to melt the ice or freeze the water
 contained within it merely by placing it into appropriate surroundings.\
 The only way to melt the ice is to some mechanical process, not by
-shaking or stirring.
-
-The particular example just discussed leads us to the following general
-definition: an enclosure is called adiabatic (a) the equilibrium of a
-system contained within it can only be disturbed or mechanical means. An
-enclosure which is not adiabatic is called diathermic. Any doubt as to
-what constitutes 'mechanical means' is removed by prescription; examples
-are shaking, stirring, the movement of a piston (or more generally any
-deformation of the system), and the passage of an electric current.
+shaking or stirring. The particular example just discussed leads us to
+the following general definition: an enclosure is called adiabatic (a)
+the equilibrium of a system contained within it can only be disturbed or
+mechanical means. An enclosure which is not adiabatic is called
+diathermic. Any doubt as to what constitutes 'mechanical means' is
+removed by prescription; examples are shaking, stirring, the movement of
+a piston (or more generally any deformation of the system), and the
+passage of an electric current.
 
 ## Adiabatic Transitions and Work
 
@@ -785,3 +782,135 @@ but we must not forget that we have only standard systems in mind.
     artificial in that there are no deformation coordinates. On the
     other hand, the usual stirrer is to be present.) Determine an
     empirical entropy function.
+
+# Class Notes:
+
+$$V = \frac{RT}{P} \sum_i n_i$$
+$$\frac{\partial V}{\partial n_i } = \frac{RT}{p}= V_m = \frac{V}{\sum n_i}$$
+$$\frac{\partial n_{j \neq i}}{n_i}= 1$$ In the ideal gas situation each
+component finds the whole container available for it. It doesn't feel
+that someone else is there.
+
+$$P_i = \frac{n_i RT}{V}$$ $$P = \frac{\sum_i n_i RT}{V}$$
+$$P_i = \chi_i P$$ Define a close system such that change in the number
+of moles of any component is 0. $dn_i = 0 \forall i$ at const. T
+
+Do remember that, $$dG = Vdp -Sdt + \sum_i \mu_idn_i$$
+$$d\mu_i = V_idp -S_idt + \sum_i \frac{d\mu_i}{dn_i}dn_i$$
+
+::: center
+:::
+
+So, at cont T and const. composition, $$d\mu_i = V_i dp$$
+$$\Delta \mu_i = \mu_i (T, P_i) - \mu_i(T,P) = \int_P^{P_i} V_idp = \int_P^{P_i} \frac{RT}{P} dp = RT \ln{\chi_i}$$
+Basically, any change in the chemical potential means that the only
+change will occur in the mole fraction and vice-versa.
+$$\mu_i (T,P, \chi_i) = \mu_i(T,P) + RT\ln{\chi_i}$$
+$$\mu_i = \mu_i^* + RT\ln{\chi_i}$$ where, $\mu_i^*$ is the reference
+state, maybe the ideal gas situation.
+
+\
+This means that suppose we have $P_{i_1} \rightarrow P_{i_2}$, then we
+have the different refernce state,
+$$\mu_{i_1}  = \mu_{i_2} + RT\ln{\frac{c_{i_2}}{c_{i_1}}}$$ This is an
+alternate reference state. $$P_i = \frac{n_iRT}{V} = c_iRT$$
+$$\frac{a_{i_2}}{a_{i_1}} = \frac{\chi_{i_2}}{\chi_{i_1}}$$ Change in
+the mixture and not the $G_{mix}$, remember the later is a wrong
+notation. So we have , $$\Delta_{mix} G = G_{T,P} +  G_{T,P}^*$$
+$$= \sum_i n_i\mu_i - \sum_in_i\mu_i^*$$
+$$= \sum_i n_i(\mu_i^* + RT\ln{\chi_i} - \sum_in_i\mu_i^*$$
+$$\Delta_{mix} G = nRT\sum_i \chi_i\ln{\chi_i}$$ Consider a free
+adiabetic expansion of ideal gas,, From $P,V,T \rightarrow P=0, 2V$ this
+expansion is carried out at const temperature, $dq_{rev} = dw_{rev}$, so
+we get the entropy change as $nR\ln{2}$
+
+Remember, $$\frac{\partial G}{\partial T}|_{P,n} = \Delta_{mix} S$$
+$$\Delta_{mix} H = \Delta G + T\Delta S = 0$$ This is an ideal mixture,
+so there is no enthalpy change in the in the mixing.\
+Find the followings:
+
+$$\Delta V_{mix} = ?$$
+
+$$\Delta A_{mix } = ?$$ Should there be any change in the entropy of the
+surrounding? $$\Delta_{mix} S = -nR\sum_i \chi_i\ln{\chi_i}$$ Since this
+is a const pressure process, then heat change is the enthalpy change and
+since enthalpy change is 0, so the process is adiabetic.
+
+Can we look at just the state variables of the process and just conclude
+if the process be spontaneous? We just did that!!!\
+**Any system that is capable of doing work at const temp and pressure
+then the spontanaity is for only the non-expansion work.**\
+**Question:**\
+Pure liquid A with vapour pressure $P_A$, assume the vapour to be ideal
+gas, the $\mu_A = \mu_0 + RT\ln{P_A^*}$, $P_A^*$ is the vapour pressure
+relative the reference state $P_A^* = \frac{P_A}{P_0}$ , $\mu_A$
+chemical potential of the vapour phase. Since the chemical eq.
+guarantees that the $\mu_A = \mu_{liquid}$ meaning we can use the same
+ideal gas law can be applied to the liquid, as long as it's in chem eq
+and the vapour behaves ideally.\
+Now, if I go from the pure liquid to a mixture of liquid, that might not
+be solid. I am mixing 2 liquids. I am moving away from the pure state,
+the eq may not be valid now.
+$$\mu_{A_{mix}} = \mu_0  + RT\ln{P_{A_{mix}}'}$$
+$$\mu_{A_{liq}} = \mu_0  + RT\ln{P_{A_{liq}}^*}$$ mix is the mixture of
+A and B.
+
+If we see the change in the chem potential,
+$$\mu_{A_{mix}} - \mu_{A_{pure}} = RT\ln{\frac{P_{A, mix}}{P_{A,pure}}}$$
+$$P_A' = \frac{P_{A,m}}{P_0}$$
+
+$$\frac{P_A'}{P_A^*} = \frac{P_{A,mix}}{P_{A, pure}}$$
+
+## Rault's Law
+
+::: center
+:::
+
+$$P_{A, mix} = P_{A, pure}\chi_A$$ $$\frac{P_A}{P_{A, pure}} = \chi_A$$
+
+Definition of an Ideal Solution: Such that the chem potential of A
+summed to the $RT\ln{\chi_A}$
+
+## Henry's Law
+
+As $\chi_B \rightarrow0$,
+
+$$P_B \propto \chi_B$$
+
+Think of a solution in a closed vessel with components A and B, a
+monogeneous mix, the rate of evaporation of A will be related to the
+number of molecules of A or the mole fraction of A ie. $\chi_A$
+$$\text{Rate of Evaporation} = k\chi_A$$
+$$\text{Rate of Condensation} = k'P_A$$ $$P_A = \frac{k}{k'}\chi_A$$
+Interactions deviate from the ideality, the molecules on the surface are
+drastically different from the bulk molecules.
+
+So, this law also makes you think about the ideality of the solution.
+
+1.  The solute is not volatile, meaning you will only see the solvent.
+
+2.  The dissolved solute will not be a part of the solid solvent.
+
+**Nature of the graph:** $RT\ln{\chi_A}$ here $\chi_A \leq 1$ meaning
+the chemical potential of the solvent of the mixture will always be less
+than the pure solvent.
+
+$$\text{Change in the Temp for freezing and boiling } \propto \chi$$
+
+![Caption](images/chem_pot_collegative.png){#fig:enter-label
+width="50%"}
+
+$$\mu_{A,gas} = \mu_{A, liquid}$$
+$$\mu_{A,gas}^* = \mu_{A,liquid}^* + RT\ln{\chi_A}$$
+
+$$\ln{\chi_A} = \frac{\mu_{A,gas}^* - \mu_{A,liquid}^*}{RT} = \frac{\Delta G_{vap}}{RT}$$
+
+$$\frac{d}{dt}(\ln{\chi_A}) = \frac{1}{R} \frac{d}{dt} \frac{\Delta G_{vap}}{T} = - \frac{\Delta H_{vap}}{RT^2}$$
+$$\int_0^{\ln{\chi_A}} d(\ln{\chi_A}) = - \int_{T^*}^{T} \frac{\Delta H_{vap}}{RT^2} dT$$
+$$\implies \ln{1-\chi_B} =  -\frac{\Delta H_{vap}}{R}\{\frac{1}{T^*}- \frac{1}{T}\}$$
+$$\frac{\partial }{\partial T}(\frac{\Delta G}{T})_P = - \frac{\Delta H}{T^2}$$
+$$\frac{\partial G}{\partial T}_P = \frac{G-H}{T}$$
+
+$$\frac{\partial}{\partial T} \frac{\Delta G}{T} = -\frac{G}{T^2} + \frac{G-H}{T^2} = -\frac{\Delta H}{T^2}$$
+
+# AI Trying to Summerize the Notes:
