@@ -473,7 +473,136 @@ Finally, a word about the additivity of energy. Suppose we consider two systems 
 \end{itemize}
 
 
+
+
+
 \section{Class Notes:}
+TD (Total Density) of the sample mixture = $\frac{V}{n_A + n_B}$\\
+
+Suppose there are $i$ components in the gas such that for some $m>0 $ and $m$ being an integer $i \leq m$, then we can also define the partial molar volume as $V_i$ for the $i^{th}$ component. 
+
+Now we can define $F$ as a first-order homogeneous function in $n_i$ as $F(T,P, n_1, \ldots, n_m)$, where $T\rightarrow Temp$, $P\rightarrow Pressure$, and $n_i$ is the total number of moles for the $i^{th}$ component.
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\begin{mdframed}[style=MyFrame, frametitle={Definition of Homogeneous Functions}]
+    
+
+A function $F(x_1, x_2, \dots, x_n)$ is said to be \textbf{homogeneous of degree $k$} if for any scalar $\lambda$, it satisfies:
+
+\begin{equation}
+    F(\lambda x_1, \lambda x_2, \dots, \lambda x_n) = \lambda^k F(x_1, x_2, \dots, x_n)
+\end{equation}
+
+where $k$ is a constant called the \textbf{degree of homogeneity}. This means that when all arguments are scaled by $\lambda$, the function itself scales by $\lambda^k$.
+\\
+\\
+\textbf{Examples of Homogeneous Functions}\\
+1. Homogeneous of degree 1:
+   \begin{equation}
+       F(x, y) = x + y
+   \end{equation}
+   Scaling $x$ and $y$ by $\lambda$ gives:
+   \begin{equation}
+       F(\lambda x, \lambda y) = \lambda x + \lambda y = \lambda F(x, y)
+   \end{equation}
+   Thus, $F$ is homogeneous of degree 1.
+
+2. Homogeneous of degree 2:
+   \begin{equation}
+       F(x, y) = x^2 + y^2
+   \end{equation}
+   Scaling $x$ and $y$ by $\lambda$:
+   \begin{equation}
+       F(\lambda x, \lambda y) = (\lambda x)^2 + (\lambda y)^2 = \lambda^2 (x^2 + y^2) = \lambda^2 F(x, y)
+   \end{equation}
+   So, $F$ is homogeneous of degree 2.
+\\
+\\
+\textbf{First-Order Homogeneous Functions}\\
+A function is \textbf{first-order homogeneous} if it is homogeneous of degree $1$, meaning:
+\begin{equation}
+    F(\lambda x_1, \lambda x_2, \dots, \lambda x_n) = \lambda F(x_1, x_2, \dots, x_n)
+\end{equation}
+
+In thermodynamics, extensive properties such as \textit{volume} ($V$), \textit{energy} ($U$), and \textit{Gibbs free energy} ($G$) are first-order homogeneous functions.
+
+For instance, if $G$ represents Gibbs free energy:
+\begin{equation}
+    G(T, P, n_1, n_2, \dots, n_m)
+\end{equation}
+then, due to extensivity:
+\begin{equation}
+    G(T, P, \lambda n_1, \lambda n_2, \dots, \lambda n_m) = \lambda G(T, P, n_1, n_2, \dots, n_m)
+\end{equation}
+\\
+\\
+\textbf{Euler’s Theorem for Homogeneous Functions}
+\\
+Euler’s theorem states that if $F(x_1, x_2, \dots, x_n)$ is a homogeneous function of degree $k$, then:
+
+\begin{equation}
+    \sum_{i=1}^{n} x_i \frac{\partial F}{\partial x_i} = k F
+\end{equation}
+\\
+\\
+
+\textbf{Derivation of Euler’s Theorem}
+\\
+Since $F$ is homogeneous of degree $k$:
+\begin{equation}
+    F(\lambda x_1, \lambda x_2, \dots, \lambda x_n) = \lambda^k F(x_1, x_2, \dots, x_n)
+\end{equation}
+
+Differentiating both sides with respect to $\lambda$:
+
+\begin{equation}
+    \frac{d}{d\lambda} F(\lambda x_1, \lambda x_2, \dots, \lambda x_n) = k \lambda^{k-1} F(x_1, x_2, \dots, x_n)
+\end{equation}
+
+Using the chain rule:
+\begin{equation}
+    \sum_{i=1}^{n} x_i \frac{\partial F}{\partial x_i} = k F
+\end{equation}
+which is Euler’s theorem.
+\\
+\\
+
+\textbf{Application to First-Order Homogeneous Functions}
+\\
+For first-order homogeneous functions ($k = 1$):
+\begin{equation}
+    \sum_{i=1}^{n} x_i \frac{\partial F}{\partial x_i} = F
+\end{equation}
+
+Applying this to Gibbs free energy ($G$), we obtain:
+\begin{equation}
+    \sum_{i=1}^{m} n_i \frac{\partial G}{\partial n_i} = G
+\end{equation}
+
+which gives the important thermodynamic relation:
+\begin{equation}
+    G = \sum_{i=1}^{m} \mu_i n_i
+\end{equation}
+where $\mu_i$ is the chemical potential of component $i$.
+
+
+1. A function is \textbf{homogeneous of degree $k$} if scaling all variables by $\lambda$ scales the function by $\lambda^k$.
+2. \textbf{First-order homogeneous functions} ($k=1$) include thermodynamic extensive properties like $V$, $U$, and $G$.
+3. \textbf{Euler’s theorem} states that for a homogeneous function of degree $k$:
+   \begin{equation}
+       \sum_{i=1}^{n} x_i \frac{\partial F}{\partial x_i} = k F
+   \end{equation}
+4. Applying Euler’s theorem to Gibbs free energy yields:
+   \begin{equation}
+       G = \sum \mu_i n_i
+   \end{equation}
+   which is fundamental in thermodynamics.
+
+\end{mdframed}
+
+
 \[
 V = \frac{RT}{P} \sum_i n_i 
 \]
@@ -777,7 +906,377 @@ So, this law also makes you think about the ideality of the solution.
 \frac{\partial}{\partial T} \frac{\Delta G}{T} = -\frac{G}{T^2} + \frac{G-H}{T^2} = -\frac{\Delta H}{T^2}
 \]
 
-\section{AI Trying to Summerize the Notes:}
+\section{AI Trying to Summerize the Notes by Dr. Debanshu Chowdhury:}
+
+\subsection{Introduction to Thermodynamics}
+
+Albert Einstein once said: ``A law is more impressive the greater the simplicity of its premise and wider its range of applicability. Thermodynamics is the only physical theory that within the framework of its applicability will never be overthrown.''
+
+Thermodynamics is a branch of physics that deals with heat, work, and temperature, and their relation to energy, radiation, and physical properties of matter. The behavior of these quantities is governed by the four laws of thermodynamics which define fundamental physical quantities (temperature, energy, and entropy) that characterize thermodynamic systems.
+
+\subsection{System and Surroundings}
+
+A thermodynamic system is defined as a quantity of matter or a region in space chosen for study. Everything external to the system is called the surroundings.
+
+Systems can be classified as:
+\begin{itemize}
+    \item \textbf{Open system}: Can exchange both energy and matter with surroundings
+    \item \textbf{Closed system}: Can exchange energy but not matter with surroundings
+    \item \textbf{Isolated system}: Cannot exchange energy or matter with surroundings
+\end{itemize}
+
+The boundary separating the system from its surroundings can be:
+\begin{itemize}
+    \item \textbf{Real}: Physical barrier
+    \item \textbf{Imaginary}: Conceptual demarcation
+\end{itemize}
+
+\subsection{State Variables and Equilibrium}
+
+\subsubsection{State Variables}
+The state of a thermodynamic system is completely specified by a set of quantities called \textbf{state variables} (also known as state functions or state parameters). Common state variables include:
+
+\begin{itemize}
+    \item Pressure ($p$)
+    \item Temperature ($T$)
+    \item Volume ($V$)
+    \item Number of moles ($n$)
+\end{itemize}
+
+State variables are path-independent, meaning their change depends only on the initial and final states, not on the path taken between them.
+
+\subsubsection{Types of State Variables}
+\begin{itemize}
+    \item \textbf{Extensive variables}: Scale with the size of the system (e.g., volume, internal energy, entropy)
+    \item \textbf{Intensive variables}: Independent of the size of the system (e.g., temperature, pressure, density)
+\end{itemize}
+
+For a one-component, single-phase system, the state can be completely defined by only 2 intensive variables. This is a consequence of the Gibbs' Phase Rule:
+
+\[
+F = C - P + 2
+\]
+
+Where:
+\begin{itemize}
+    \item $F$ is the number of degrees of freedom
+    \item $C$ is the number of components
+    \item $P$ is the number of phases
+\end{itemize}
+
+\subsubsection{Equation of State}
+An \textbf{equation of state} relates different state variables of a system at equilibrium. The most famous example is the ideal gas equation:
+
+\[
+pV = nRT
+\]
+
+Where:
+\begin{itemize}
+    \item $p$ is pressure
+    \item $V$ is volume
+    \item $n$ is number of moles
+    \item $R$ is the universal gas constant (8.314 J/mol·K)
+    \item $T$ is temperature in Kelvin
+\end{itemize}
+
+\subsubsection{Equilibrium}
+A system is said to be in \textbf{equilibrium} when its state variables do not change with time. Types of equilibrium include:
+
+\begin{itemize}
+    \item \textbf{Mechanical equilibrium}: No unbalanced forces (uniform pressure)
+    \item \textbf{Thermal equilibrium}: Uniform temperature throughout the system
+    \item \textbf{Chemical equilibrium}: No net chemical reactions occurring
+\end{itemize}
+
+\subsection{Exact and Inexact Differentials}
+
+In thermodynamics, it's crucial to distinguish between exact (state variables) and inexact (path variables) differentials:
+
+\begin{itemize}
+    \item \textbf{Exact differentials} (denoted by $d$): Represent changes in state functions. The integral of an exact differential depends only on the initial and final states, not on the path.
+    \item \textbf{Inexact differentials} (denoted by $\delta$): Represent path-dependent quantities like heat and work. The integral of an inexact differential depends on the specific path taken.
+\end{itemize}
+
+For a function $f(x,y)$, its differential $df$ is exact if:
+
+\[
+\frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right) = \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y}\right)
+\]
+
+\subsection{The Laws of Thermodynamics}
+
+There are four fundamental laws of thermodynamics, which cannot be proven but are taken to be inviolable based on empirical evidence:
+
+\subsubsection{Zeroth Law of Thermodynamics}
+
+If two systems are each in thermal equilibrium with a third system, then they are in thermal equilibrium with each other.
+
+Mathematically: If $T_A = T_B$ and $T_B = T_C$, then $T_A = T_C$
+
+This law establishes temperature as a fundamental property and allows for the construction of thermometers. Temperature is a measure of the average kinetic energy of molecular motion in a substance.
+
+\subsubsection{First Law of Thermodynamics}
+
+Energy can neither be created nor destroyed; it can only be converted from one form to another.
+
+For a closed system:
+\[
+dU = \delta q + \delta w
+\]
+
+Where:
+\begin{itemize}
+    \item $dU$ is the change in internal energy of the system
+    \item $\delta q$ is the heat added to the system
+    \item $\delta w$ is the work done on the system
+\end{itemize}
+
+The total energy of a system is:
+\[
+E = K + V + U
+\]
+
+Where:
+\begin{itemize}
+    \item $K$ is the macroscopic kinetic energy
+    \item $V$ is the macroscopic potential energy
+    \item $U$ is the internal energy
+\end{itemize}
+
+For a system at rest under no external potential, $E = U$.
+
+It's important to note that while heat and work are path variables, their sum (the change in internal energy) is a state variable.
+
+\subsubsection{Second Law of Thermodynamics}
+
+The entropy of an isolated system never decreases; it either increases or remains constant.
+
+\[
+\Delta S \geq 0 \quad \text{(for an isolated system)}
+\]
+
+The second law introduces the concept of entropy and defines the direction of thermodynamic processes, establishing the arrow of time.
+
+\subsubsection{Third Law of Thermodynamics}
+
+As the temperature of a system approaches absolute zero, the entropy of the system approaches a minimum value.
+
+\[
+\lim_{T \to 0} S = S_0
+\]
+
+This law allows us to assign a numerical value to entropy.
+
+\subsection{Work, Energy, and Heat}
+
+\subsubsection{Work}
+Work in thermodynamics is defined similarly to classical mechanics:
+\[
+\delta w = F \cdot dx
+\]
+
+For volume change work (expansion/compression):
+\[
+\delta w = -p \cdot dV
+\]
+
+The negative sign indicates that when a system expands ($dV > 0$), it does work on the surroundings ($\delta w < 0$).
+
+\subsubsection{Energy}
+Energy is the capacity of a system to do work. Examples include:
+\begin{itemize}
+    \item Compressed gas
+    \item Wound spring
+    \item Elevated weight
+    \item Hot water
+\end{itemize}
+
+\subsubsection{Heat}
+Heat is energy transferred due to temperature differences. While work and heat are both forms of energy transfer, they differ fundamentally:
+\begin{itemize}
+    \item \textbf{Work}: Organized, directional transfer of energy
+    \item \textbf{Heat}: Disorganized, random transfer of energy
+\end{itemize}
+
+\subsection{Reversible and Irreversible Processes}
+
+\subsection{Reversible Process}
+A process that can be reversed by an infinitesimal change in a variable, returning both the system and the surroundings to their initial states.
+
+For a reversible isothermal expansion of an ideal gas:
+\[
+w_{rev} = -nRT\ln\frac{V_f}{V_i}
+\]
+
+\subsubsection{Irreversible Process}
+Any process that is not reversible. All real processes are irreversible.
+
+For an irreversible isothermal expansion of an ideal gas:
+\[
+w_{irr} = -p_{ext}(V_f - V_i)
+\]
+
+It can be shown that:
+\[
+|w_{rev}| \geq |w_{irr}|
+\]
+
+This means a reversible process extracts the maximum possible work from a system.
+
+\subsection{Joule Expansion}
+
+Joule (free) expansion is an irreversible process in which a gas expands into a vacuum. During this process:
+\begin{itemize}
+    \item No work is done: $\delta w = 0$ (expansion against zero pressure)
+    \item No heat is transferred: $\delta q = 0$ (adiabatic process)
+\end{itemize}
+
+Therefore, from the first law:
+\[
+dU = \delta q + \delta w = 0
+\]
+
+For an ideal gas, the internal energy depends only on temperature, so $\Delta T = 0$ during Joule expansion. 
+
+For a real gas, however, the temperature may change due to intermolecular forces.
+
+\subsection{Heat Capacity}
+
+Heat capacity is the amount of heat required to raise the temperature of a substance by one unit.
+
+\subsubsection{Heat Capacity at Constant Volume}
+
+\[
+C_V = \left(\frac{\partial U}{\partial T}\right)_V = \left(\frac{\delta q}{\delta T}\right)_V
+\]
+
+For an ideal gas:
+\[
+C_V = \frac{f}{2}nR
+\]
+
+Where $f$ is the number of degrees of freedom.
+
+\subsubsection{Heat Capacity at Constant Pressure}
+
+\[
+C_p = \left(\frac{\partial H}{\partial T}\right)_p = \left(\frac{\delta q}{\delta T}\right)_p
+\]
+
+For an ideal gas:
+\[
+C_p = C_V + nR
+\]
+
+This shows that $C_p > C_V$ for any substance, as some additional energy is needed at constant pressure to perform expansion work.
+
+\subsection{Enthalpy}
+
+Enthalpy ($H$) is a thermodynamic property defined as:
+\[
+H = U + pV
+\]
+
+The differential form is:
+\[
+dH = dU + pdV + Vdp
+\]
+
+At constant pressure:
+\[
+dH = dU + pdV = \delta q_p
+\]
+
+This makes enthalpy particularly useful for analyzing processes that occur at constant pressure, such as most chemical reactions.
+
+For a reaction involving gases:
+\[
+\Delta H = \Delta U + \Delta n_g RT
+\]
+
+Where $\Delta n_g$ is the change in the number of moles of gas.
+
+\subsection{Adiabatic Processes}
+
+An adiabatic process is one in which no heat is exchanged with the surroundings ($\delta q = 0$).
+
+For an adiabatic process:
+\[
+dU = \delta w = -pdV
+\]
+
+For an ideal gas undergoing a reversible adiabatic process:
+\[
+pV^\gamma = \text{constant}
+\]
+
+Where $\gamma = C_p/C_V$ is the heat capacity ratio.
+
+Temperature and volume are related by:
+\[
+TV^{\gamma-1} = \text{constant}
+\]
+
+Temperature and pressure are related by:
+\[
+T p^{(1-\gamma)/\gamma} = \text{constant}
+\]
+
+\subsection{Joule-Thomson Effect}
+
+The Joule-Thomson effect describes the temperature change of a gas when it is allowed to expand through a porous plug or valve while being thermally insulated so that no heat is exchanged with the environment.
+
+\subsubsection{Joule-Thomson Coefficient}
+
+The Joule-Thomson coefficient is defined as:
+\[
+\mu_{JT} = \left(\frac{\partial T}{\partial p}\right)_H
+\]
+
+It measures the temperature change per unit pressure drop at constant enthalpy.
+
+For an ideal gas: $\mu_{JT} = 0$ (no temperature change)
+
+For a real gas:
+\begin{itemize}
+    \item $\mu_{JT} > 0$: Gas cools during expansion (intermolecular attraction dominates)
+    \item $\mu_{JT} < 0$: Gas warms during expansion (intermolecular repulsion dominates)
+\end{itemize}
+
+The Joule-Thomson experiment is an isenthalpic process:
+\[
+H_2 = H_1
+\]
+\[
+U_2 + p_2V_2 = U_1 + p_1V_1
+\]
+
+\subsubsection{Inversion Temperature}
+
+The temperature at which $\mu_{JT} = 0$ is called the inversion temperature. Above the inversion temperature, a gas warms upon expansion; below it, the gas cools.
+
+\subsection{Thermochemistry}
+
+Thermochemistry deals with the heat changes accompanying chemical reactions.
+
+\subsubsection{Standard Enthalpy of Formation}
+
+The standard enthalpy of formation ($\Delta H_f^°$) is the enthalpy change when one mole of a compound is formed from its elements in their standard states at 298.15 K and 1 bar pressure.
+
+By convention:
+\[
+\Delta H_f^°(\text{element in its standard state}) = 0
+\]
+
+\subsubsection{Enthalpy of Reaction}
+
+The enthalpy change for a reaction can be calculated using Hess's Law:
+\[
+\Delta H_{rxn} = \sum \Delta H_f^°(\text{products}) - \sum \Delta H_f^°(\text{reactants})
+\]
+
+This reinforces the state function property of enthalpy, as the overall enthalpy change depends only on the initial and final states, not on the pathway.
 
 
 
