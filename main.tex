@@ -608,7 +608,7 @@ So, if we keep two of the parameters constant then we can have,
 F_{T,P} = \sum_i n_i \frac{\partial F}{\partial n_i}
 \]
 which is analogous to 
-\[
+
 \[
 G_{T,P} = \sum_i n_i \frac{\partial G}{\partial n_i} = \sum_i n_i \mu_i
 \]
@@ -1000,6 +1000,195 @@ So, this law also makes you think about the ideality of the solution.
 \[
 \frac{\partial}{\partial T} \frac{\Delta G}{T} = -\frac{G}{T^2} + \frac{G-H}{T^2} = -\frac{\Delta H}{T^2}
 \]
+\subsection{Derivation of Clausius-Clapeyron Equation}
+The Clausius-Clapeyron equation is a fundamental result in thermodynamics that describes the relationship between pressure and temperature during phase transitions. It is given by:
+
+\begin{equation}
+\frac{1}{p} \frac{dp}{dT} = \frac{\Delta H_{\text{vap}}}{RT^2}.
+\end{equation}
+
+This derivation begins from the chemical potential and makes necessary approximations to reach the final form.
+
+\subsubsection{Derivation from Chemical Potential}
+The chemical potential \( \mu \) is defined as the Gibbs free energy per mole:
+
+\begin{equation}
+\mu = \frac{G}{n}.
+\end{equation}
+
+At equilibrium between two phases (liquid and vapor), the chemical potentials must be equal:
+
+\begin{equation}
+\mu_{\text{liquid}} = \mu_{\text{vapor}}.
+\end{equation}
+
+Differentiating the Gibbs free energy per mole:
+
+\begin{equation}
+d\mu = -S_m dT + V_m dp,
+\end{equation}
+
+where \( S_m \) is the molar entropy and \( V_m \) is the molar volume.
+
+Since \( \mu_{\text{liquid}} = \mu_{\text{vapor}} \), we equate their differentials:
+
+\begin{equation}
+-S_{m,\text{liquid}} dT + V_{m,\text{liquid}} dp = -S_{m,\text{vapor}} dT + V_{m,\text{vapor}} dp.
+\end{equation}
+
+Rearranging,
+
+\begin{equation}
+(S_{m,\text{vapor}} - S_{m,\text{liquid}}) dT = (V_{m,\text{vapor}} - V_{m,\text{liquid}}) dp.
+\end{equation}
+
+Recognizing the entropy change of vaporization as \( \Delta S_{\text{vap}} \) and volume change as \( \Delta V_{\text{vap}} \), we obtain the Clapeyron equation:
+
+\begin{equation}
+\frac{dp}{dT} = \frac{\Delta S_{\text{vap}}}{\Delta V_{\text{vap}}}.
+\end{equation}
+
+\subsubsection{Approximations Leading to the Clausius-Clapeyron Equation}
+For liquid-vapor equilibrium:
+- The molar volume of vapor is much larger than that of the liquid: \( V_{m,\text{liquid}} \ll V_{m,\text{vapor}} \).
+- Approximating the vapor as an ideal gas,
+
+\begin{equation}
+V_{m,\text{vapor}} = \frac{RT}{p}.
+\end{equation}
+
+Thus,
+
+\begin{equation}
+\Delta V_{\text{vap}} \approx \frac{RT}{p}.
+\end{equation}
+
+Using the relation:
+
+\begin{equation}
+\Delta S_{\text{vap}} = \frac{\Delta H_{\text{vap}}}{T},
+\end{equation}
+
+we substitute into the Clapeyron equation:
+
+\begin{equation}
+\frac{dp}{dT} = \frac{\frac{\Delta H_{\text{vap}}}{T}}{\frac{RT}{p}} = \frac{\Delta H_{\text{vap}}}{RT^2} p.
+\end{equation}
+
+Dividing by \( p \) on both sides:
+
+\begin{equation}
+\frac{1}{p} \frac{dp}{dT} = \frac{\Delta H_{\text{vap}}}{RT^2}.
+\end{equation}
+
+\subsubsection{Example: Estimating Vapor Pressure}
+Given the enthalpy of vaporization of water as \( \Delta H_{\text{vap}} = 40.7 \) kJ/mol, estimate the change in vapor pressure between 298 K and 310 K.
+
+Using the integrated form:
+
+\begin{equation}
+\ln \frac{p_2}{p_1} = \frac{\Delta H_{\text{vap}}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right),
+\end{equation}
+
+we substitute:
+
+\begin{equation}
+R = 8.314 \text{ J/mol K}, \quad T_1 = 298 \text{ K}, \quad T_2 = 310 \text{ K}.
+\end{equation}
+
+Solving,
+
+\begin{equation}
+\ln \frac{p_2}{p_1} = \frac{40700}{8.314} \left( \frac{1}{298} - \frac{1}{310} \right).
+\end{equation}
+
+Evaluating,
+
+\begin{equation}
+\ln \frac{p_2}{p_1} \approx 0.549.
+\end{equation}
+
+Thus,
+
+\begin{equation}
+\frac{p_2}{p_1} = e^{0.549} \approx 1.73.
+\end{equation}
+
+This means the vapor pressure increases by approximately 73\% when the temperature rises from 298 K to 310 K.
+\subsection{Colligative Properties from Chemical Potential in Mixtures}
+The chemical potential (\(\mu\)) of a component in a mixture is given by:
+\begin{equation}
+    \mu_i = \mu_i^* + RT \ln x_i
+\end{equation}
+where \(\mu_i^*\) is the standard chemical potential of the pure component, \(R\) is the gas constant, \(T\) is the temperature, and \(x_i\) is the mole fraction.
+For a binary solution with a solvent (A) and a non-volatile solute (B), the chemical potential of the solvent changes due to the presence of the solute, leading to colligative properties.
+
+\subsubsection{Relative Lowering of Vapor Pressure}
+For an ideal solution, the chemical potential of the solvent in the liquid phase is:
+\begin{equation}
+    \mu_A = \mu_A^* + RT \ln x_A
+\end{equation}
+At equilibrium, the chemical potential of the solvent in the vapor phase is:
+\begin{equation}
+    \mu_A^g = \mu_A^{g*} + RT \ln \frac{P_A}{P_A^*}
+\end{equation}
+Since \( \mu_A = \mu_A^g \), we equate:
+\begin{equation}
+    \mu_A^* + RT \ln x_A = \mu_A^{g*} + RT \ln \frac{P_A}{P_A^*}
+\end{equation}
+Simplifying:
+\begin{equation}
+    \ln \frac{P_A}{P_A^*} = \ln x_A
+\end{equation}
+For small \( x_B \), using \( \ln(1 - x_B) \approx -x_B \):
+\begin{equation}
+    \frac{P_A^* - P_A}{P_A^*} \approx x_B
+\end{equation}
+
+\subsubsection{Boiling Point Elevation}
+From the Clausius-Clapeyron equation:
+\begin{equation}
+    \frac{dP_A}{dT} = \frac{\Delta H_{vap} P_A}{RT^2}
+\end{equation}
+Taking the logarithm and differentiating:
+\begin{equation}
+    d \ln P_A = \frac{\Delta H_{vap}}{RT^2} dT
+\end{equation}
+Substituting \( d \ln P_A = d \ln x_A \), we get:
+\begin{equation}
+    d \ln x_A = \frac{\Delta H_{vap}}{RT^2} dT
+\end{equation}
+Approximating and integrating:
+\begin{equation}
+    \Delta T_b = K_b m
+\end{equation}
+where \( K_b = \frac{RT^2 M_A}{\Delta H_{vap}} \).
+
+\subsubsection{Freezing Point Depression}
+Using the Gibbs-Helmholtz relation:
+\begin{equation}
+    \frac{d \ln x_A}{dT} = \frac{\Delta H_f}{RT^2}
+\end{equation}
+Integrating:
+\begin{equation}
+    \Delta T_f = K_f m
+\end{equation}
+where \( K_f = \frac{RT^2 M_A}{\Delta H_f} \).
+
+\subsubsection{Osmotic Pressure}
+The chemical potential of the solvent in solution:
+\begin{equation}
+    \mu_A = \mu_A^* + RT \ln x_A
+\end{equation}
+Approximating for dilute solutions:
+\begin{equation}
+    RT \ln x_A \approx -RT x_B \approx -RT \frac{n_B}{n_A}
+\end{equation}
+Using \( n_A = \frac{V}{M_A} \) and \( \Pi V = n_B RT \), we get:
+\begin{equation}
+    \Pi = cRT
+\end{equation}
+where \( c = \frac{n_B}{V} \).
 
 \section{AI Trying to Summerize the Notes by Dr. Debanshu Chowdhury:}
 
@@ -1644,4 +1833,165 @@ P_i = \chi_i P.
     \end{equation}
     \item Surroundings’ Entropy Change: Zero in an ideal isothermal, isobaric process.
 \end{itemize}
+
+
+
+\subsection{Raoult's Law}
+
+Raoult's Law describes the relationship between the vapor pressure of a component in an ideal solution and its mole fraction. It is derived using the concept of chemical potential. The chemical potential of a component $A$ in a solution is given by:
+
+\begin{equation}
+\mu_A = \mu_A^* + RT \ln X_A
+\end{equation}
+
+where $\mu_A^*$ is the chemical potential of pure $A$, $X_A$ is the mole fraction of $A$ in the liquid phase, $R$ is the universal gas constant, and $T$ is the temperature.
+
+At equilibrium, the chemical potential of $A$ in the liquid phase must equal the chemical potential in the gas phase:
+
+\begin{equation}
+\mu_A^{gas} = \mu_A^{liquid}
+\end{equation}
+
+The chemical potential of $A$ in the gas phase follows the relation:
+
+\begin{equation}
+\mu_A^{gas} = \mu_A^{gas,*} + RT \ln P_A
+\end{equation}
+
+Setting these equal:
+
+\begin{equation}
+\mu_A^* + RT \ln X_A = \mu_A^{gas,*} + RT \ln P_A
+\end{equation}
+
+Rearranging:
+
+\begin{equation}
+RT \ln P_A = RT \ln X_A + \mu_A^* - \mu_A^{gas,*}
+\end{equation}
+
+Defining the pure component vapor pressure, $P_A^0$, where $P_A^0$ satisfies:
+
+\begin{equation}
+\mu_A^* = \mu_A^{gas,*} + RT \ln P_A^0
+\end{equation}
+
+Substituting this into the earlier equation:
+
+\begin{equation}
+RT \ln P_A = RT \ln X_A + RT \ln P_A^0
+\end{equation}
+
+\begin{equation}
+P_A = P_A^0 X_A
+\end{equation}
+
+This is Raoult’s Law, which states that the partial pressure of a component in an ideal solution is proportional to its mole fraction and its pure component vapor pressure.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={Mole fraction of A, $X_A$},
+    ylabel={Partial Pressure (kPa)},
+    xmin=0, xmax=1,
+    ymin=0, ymax=90,
+    grid=both,
+    axis lines=left,
+    smooth]
+
+\addplot[blue, thick] {80*x};
+\addplot[black, thick] {80};
+\addplot[red, thick] {30*(1 - x)};
+
+\draw[dashed, gray] (axis cs:1,0) -- (axis cs:1,80);
+\draw[dashed, gray] (axis cs:0,0) -- (axis cs:0,30);
+
+\node at (axis cs:1,40) {$P_A^0$};
+\node at (axis cs:0,15) {$P_B^0$};
+
+\node[blue, right] at (axis cs:0.7,56) {$P_A = X_A P_A^0$};
+\node[red, left] at (axis cs:0.3,21) {$P_B = X_B P_B^0$};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Henry's Law}
+
+Henry's Law applies to dilute solutions and states that the partial pressure of a solute gas is directly proportional to its mole fraction in the solution:
+
+\begin{equation}
+P_B = k_H X_B
+\end{equation}
+
+where $k_H$ is the Henry’s law constant.
+
+Starting with the equilibrium condition:
+
+\begin{equation}
+\mu_B^{gas} = \mu_B^{solution}
+\end{equation}
+
+Expressing the chemical potential in both phases:
+
+\begin{equation}
+\mu_B^{gas} = \mu_B^{gas,*} + RT \ln P_B
+\end{equation}
+
+\begin{equation}
+\mu_B^{solution} = \mu_B^{solution,*} + RT \ln X_B
+\end{equation}
+
+Setting them equal:
+
+\begin{equation}
+\mu_B^{gas,*} + RT \ln P_B = \mu_B^{solution,*} + RT \ln X_B
+\end{equation}
+
+Rearranging:
+
+\begin{equation}
+P_B = e^{(\mu_B^{solution,*} - \mu_B^{gas,*}) / RT} X_B
+\end{equation}
+
+Defining $k_H = e^{(\mu_B^{solution,*} - \mu_B^{gas,*}) / RT}$, we obtain Henry’s Law:
+
+\begin{equation}
+P_B = k_H X_B
+\end{equation}
+
+\subsection{Temperature Dependence and Colligative Properties}
+
+The temperature dependence of the vapor pressure can be described by:
+
+\begin{equation}
+\ln{\chi_A} = \frac{\Delta G_{vap}}{RT}
+\end{equation}
+
+Differentiating with respect to temperature:
+
+\begin{equation}
+\frac{d}{dT} \ln{\chi_A} = - \frac{\Delta H_{vap}}{RT^2}
+\end{equation}
+
+Integrating:
+
+\begin{equation}
+\ln(1 - \chi_B) = -\frac{\Delta H_{vap}}{R} \left( \frac{1}{T^*} - \frac{1}{T} \right)
+\end{equation}
+
+This equation describes how temperature variations influence vapor pressure and phase transitions, leading to colligative properties like boiling point elevation and freezing point depression. The relation between Gibbs free energy, enthalpy, and temperature is:
+
+\begin{equation}
+\frac{\partial}{\partial T} \left( \frac{\Delta G}{T} \right)_P = - \frac{\Delta H}{T^2}
+\end{equation}
+
+From which:
+
+\begin{equation}
+\frac{\partial G}{\partial T}_P = \frac{G - H}{T}
+\end{equation}
+
+This equation shows that changes in free energy due to temperature variations are linked to enthalpy, reinforcing how temperature changes affect chemical equilibria in solutions.
+
 \end{document}
