@@ -1776,7 +1776,7 @@ dG \leq 0
 
 At equilibrium: $dG = 0$.
 
-\section{Phase Transitions}
+\subsection{Phase Transitions}
 
 The Clausius-Clapeyron equation relates pressure and temperature at phase equilibrium:
 \begin{equation}
@@ -2061,5 +2061,165 @@ From which:
 \end{equation}
 
 This equation shows that changes in free energy due to temperature variations are linked to enthalpy, reinforcing how temperature changes affect chemical equilibria in solutions.
+\subsection{Thermodynamic Properties of Mixing}
+
+To derive the expressions for thermodynamic properties upon mixing, we start from the definition of the chemical potential.
+
+\subsection{Chemical Potential and Gibbs Free Energy}
+The chemical potential of a component $i$ in a mixture is defined as:
+\begin{equation}
+    \mu_i = \left( \frac{\partial G}{\partial n_i} \right)_{T, P, n_{j \neq i}}
+\end{equation}
+For an ideal gas, the chemical potential is:
+\begin{equation}
+    \mu_i = \mu_i^\circ + RT \ln \frac{P_i}{P^\circ}
+\end{equation}
+where $\mu_i^\circ$ is the standard chemical potential, and $P_i$ is the partial pressure. Using Dalton’s Law, $P_i = x_i P$, we get:
+\begin{equation}
+    \mu_i = \mu_i^\circ + RT \ln \frac{x_i P}{P^\circ}
+\end{equation}
+For pure component $i$, $x_i = 1$, so:
+\begin{equation}
+    \mu_i^{\text{pure}} = \mu_i^\circ
+\end{equation}
+Thus, the difference in chemical potential due to mixing is:
+\begin{equation}
+    \mu_i - \mu_i^{\text{pure}} = RT \ln x_i
+\end{equation}
+
+\subsection{Gibbs Free Energy of Mixing}
+The total Gibbs free energy of the mixture is:
+\begin{equation}
+    G_{\text{mix}} = \sum_{i} n_i \mu_i = \sum_{i} n_i (\mu_i^\circ + RT \ln x_i)
+\end{equation}
+Since $G_{\text{pure}} = \sum_{i} n_i \mu_i^\circ$, the change in Gibbs free energy is:
+\begin{equation}
+    \Delta_{\text{mix}} G = RT \sum_{i} n_i \ln x_i
+\end{equation}
+
+\subsection{Entropy of Mixing}
+From $G = H - TS$, we get:
+\begin{equation}
+    dG = dH - TdS - SdT
+\end{equation}
+At constant $T$:
+\begin{equation}
+    \Delta_{\text{mix}} G = \Delta_{\text{mix}} H - T \Delta_{\text{mix}} S
+\end{equation}
+Since $\Delta_{\text{mix}} H = 0$ for ideal gases:
+\begin{equation}
+    \Delta_{\text{mix}} S = - R \sum_{i} x_i \ln x_i
+\end{equation}
+
+\subsection{Volume Change of Mixing}
+For an ideal gas:
+\begin{equation}
+    V_{\text{mix}} = \sum_{i} n_i \frac{RT}{P}
+\end{equation}
+Since $V_{\text{pure}}$ is the same, we obtain:
+\begin{equation}
+    \Delta_{\text{mix}} V = 0
+\end{equation}
+
+\subsection{Helmholtz Free Energy of Mixing}
+Since $F = U - TS$ and $\Delta_{\text{mix}} U = 0$:
+\begin{equation}
+    \Delta_{\text{mix}} F = - T \Delta_{\text{mix}} S = RT \sum_{i} x_i \ln x_i
+\end{equation}
+
+\subsection{Internal Energy, Temperature, and Pressure Change}
+For an ideal gas mixture:
+\begin{equation}
+    \Delta_{\text{mix}} U = 0, \quad \Delta_{\text{mix}} T = 0, \quad \Delta_{\text{mix}} P = 0
+\end{equation}
+
+\subsection{Final Summary}
+\begin{align}
+    \Delta_{\text{mix}} G &= RT \sum_{i} x_i \ln x_i \\
+    \Delta_{\text{mix}} S &= - R \sum_{i} x_i \ln x_i \\
+    \Delta_{\text{mix}} V &= 0 \\
+    \Delta_{\text{mix}} F &= RT \sum_{i} x_i \ln x_i \\
+    \Delta_{\text{mix}} U &= 0 \\
+    \Delta_{\text{mix}} T &= 0 \\
+    \Delta_{\text{mix}} P &= 0
+\end{align}
+
+These results show that mixing of ideal gases is entropy-driven and spontaneous, with no enthalpy or volume changes.
+
+\subsection{Hess's Law}
+
+\subsubsection{Statement}
+Hess's Law states that the total enthalpy change for a chemical reaction is independent of the path taken and depends only on the initial and final states. Since enthalpy is a state function,
+\begin{equation}
+\Delta H_{\text{reaction}} = \sum \Delta H_{\text{steps}}
+\end{equation}
+
+\subsubsection{Explanation}
+If a chemical reaction can be expressed as the sum of two or more intermediate reactions, then the enthalpy change of the overall reaction is equal to the sum of the enthalpy changes of the intermediate reactions. This principle allows indirect determination of enthalpy changes for reactions that are difficult to measure directly.
+
+\subsubsection{Examples}
+\textbf{Example 1: Formation of Carbon Dioxide (CO$_2$) from Graphite}
+
+Given:
+\begin{align*}
+\text{C(graphite)} + O_2 &\rightarrow CO(g), \quad \Delta H = -110.5 \text{ kJ/mol}\\
+CO(g) + \frac{1}{2} O_2 &\rightarrow CO_2(g), \quad \Delta H = -283.0 \text{ kJ/mol}
+\end{align*}
+Adding these reactions,
+\begin{equation}
+\text{C(graphite)} + O_2 \rightarrow CO_2(g), \quad \Delta H = -393.5 \text{ kJ/mol}
+\end{equation}
+
+\textbf{Example 2: Determining Enthalpy Change for NH$_3$ Formation}
+
+Given:
+\begin{align*}
+N_2 + 2O_2 &\rightarrow 2NO_2, \quad \Delta H = 66.4 \text{ kJ}\\
+2NO_2 + 7H_2 &\rightarrow 2NH_3 + 4H_2O, \quad \Delta H = -1170 \text{ kJ}\\
+2H_2 + O_2 &\rightarrow 2H_2O, \quad \Delta H = -571.6 \text{ kJ}
+\end{align*}
+Using Hess’s Law, the enthalpy change for NH$_3$ formation can be computed.
+
+\subsection{Kirchhoff’s Law}
+
+\subsubsection{Statement}
+Kirchhoff’s Law states that the enthalpy change (\(\Delta H\)) of a reaction depends on temperature as:
+\begin{equation}
+\frac{d(\Delta H)}{dT} = \Delta C_p
+\end{equation}
+where
+\begin{equation}
+\Delta C_p = \sum C_p(\text{products}) - \sum C_p(\text{reactants})
+\end{equation}
+
+\subsubsection{Integrated Form}
+If heat capacities remain constant over a temperature range,
+\begin{equation}
+\Delta H_T = \Delta H_{T_0} + \int_{T_0}^{T} \Delta C_p dT
+\end{equation}
+which simplifies to
+\begin{equation}
+\Delta H_T = \Delta H_{T_0} + \Delta C_p (T - T_0)
+\end{equation}
+
+\subsubsection{Examples}
+\textbf{Example 1: Determining Enthalpy at Different Temperatures}
+
+Given \(\Delta H_{298K} = -100 \) kJ and \(\Delta C_p = 10 \) J/K, at 500 K,
+\begin{align*}
+\Delta H_{500K} &= -100 + (10 \times (500 - 298)) \\
+                 &= -100 + 2.02 \\
+                 &= -97.98 \text{ kJ}
+\end{align*}
+This calculation shows how enthalpy changes with temperature.
+
+\textbf{Example 2: Combustion of Methane}
+The enthalpy of combustion at different temperatures can be estimated using Kirchhoff’s Law by incorporating heat capacities of CO$_2$, H$_2$O, CH$_4$, and O$_2$.
+
+\subsubsection{Applications of Hess's and Kirchhoff's Laws}
+- \textbf{Hess’s Law:} Used to calculate heats of formation, combustion, and neutralization where direct measurement is difficult.
+- \textbf{Kirchhoff’s Law:} Used in industrial processes to adjust reaction conditions based on temperature-dependent enthalpy changes.
+
+These laws are essential in thermochemistry for predicting energy requirements and optimizing chemical processes.
 
 \end{document}
